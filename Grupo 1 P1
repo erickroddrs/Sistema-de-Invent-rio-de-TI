@@ -1,0 +1,46 @@
+algoritmo "InventarioTI"
+var
+   ativos: vetor[1..3] de cadeia
+   estoque: vetor[1..3,1..2] de inteiro   // coluna 1 = atual, coluna 2 = minima
+   opcao: inteiro
+
+inicio
+   // --- Inicializacao dos nomes ---
+   ativos[1] <- "Notebooks"
+   ativos[2] <- "Monitores"
+   ativos[3] <- "Teclados"
+
+   // --- Inicializacao das quantidades ---
+   estoque[1,1] <- 10   // Notebooks: atual
+   estoque[1,2] <- 5    // Notebooks: minima
+   estoque[2,1] <- 3    // Monitores: atual (propositalmente abaixo do minimo)
+   estoque[2,2] <- 8    // Monitores: minima
+   estoque[3,1] <- 20   // Teclados: atual
+   estoque[3,2] <- 10   // Teclados: minima
+
+   opcao <- 0
+
+   enquanto opcao <> 3 faca
+      escreva("")
+      escreva("=== SISTEMA DE INVENTARIO DE TI ===")
+      escreva("1 - Emitir Relatorio")
+      escreva("2 - Registrar Recebimento")
+      escreva("3 - Encerrar Sistema")
+      escreva("Escolha uma opcao: ")
+      leia(opcao)
+
+      escolha opcao
+         caso 1
+            escreva("Logica do relatorio entrara aqui")
+
+         caso 2
+            escreva("Logica de recebimento entrara aqui")
+
+         caso 3
+            escreva("Encerrando o sistema...")
+
+         outrocaso
+            escreva("Opcao invalida! Tente novamente.")
+      fimescolha
+   fimenquanto
+fimalgoritmo
