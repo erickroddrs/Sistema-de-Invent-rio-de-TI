@@ -1,11 +1,15 @@
 programa
 {
+    // Nomes: Ricardo Macedo, Erick Rodrigo, Pedro Rabelo, Felipe Roncone, Luiz Henrique, Felipe Faleiros e Maria Luisa
     inteiro opcao
     cadeia ativos[3]
     inteiro estoque[3][2]   // coluna 0 = atual, coluna 1 = minima
 
     funcao inicio()
     {
+        inteiro id
+        inteiro quantidade
+
         ativos[0] = "Notebooks"
         ativos[1] = "Monitores"
         ativos[2] = "Teclados"
@@ -32,19 +36,55 @@ programa
             escolha(opcao)
             {
                 caso 1:
-                    escreva("Logica do relatorio entrara aqui\n")
-                    pare
+                    escreva("\n=== RELATORIO DE ESTOQUE ===\n")
 
-                caso 2:
-                    escreva("Logica de recebimento entrara aqui\n")
-                    pare
+                     para (inteiro i = 0; i < 3; i++)
+                {
+                    escreva("\nID: ", i, "\n")
+                    escreva("Nome: ", ativos[i], "\n")
+                    escreva("Quantidade Atual: ", estoque[i][0], "\n")
+                    escreva("Quantidade Minima: ", estoque[i][1], "\n")
 
-                caso 3:
-                    escreva("Encerrando o sistema...\n")
-                    pare
+                   se (estoque[i][0] < estoque[i][1])
+                    {
+                        escreva("Estoque critico! Necessario abrir chamado de compra.\n")
+                    }
+                }
 
-                caso contrario:
-                    escreva("Opcao invalida! Tente novamente.\n")
+                pare
+ caso 2:
+                escreva("\n=== REGISTRAR RECEBIMENTO ===\n")
+
+                escreva("Digite o ID do equipamento (0 a 2): ")
+                leia(id)
+
+                se (id < 0 ou id > 2)
+                {
+                    escreva("Erro: ID invalido! O ID deve estar entre 0 e 2.\n")
+                }
+                senao
+                {
+                    escreva("Digite a quantidade que esta chegando: ")
+                    leia(quantidade)
+
+                    estoque[id][0] = estoque[id][0] + quantidade
+
+                    escreva("Recebimento registrado com sucesso!\n")
+                    escreva("Nova quantidade de ", ativos[id], ": ", estoque[id][0], "\n")
+                }
+
+                pare
+
+            caso 3:
+                escreva("Encerrando o sistema...\n")
+                pare
+
+            caso contrario:
+                escreva("Opcao invalida! Tente novamente.\n")
+        }
+    }
+}
+               
             }
         }
     }
